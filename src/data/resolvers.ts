@@ -7,10 +7,8 @@ export const resolvers = {
   Query: {
     //@ts-ignore
     getUser: (root, { username }) => {
-      console.log(username);
       return User.findOne({ username: username })
         .then((user: UserType) => {
-          console.log(user);
           return user;
         })
         .catch((error: any) => {
@@ -22,7 +20,6 @@ export const resolvers = {
     // @ts-ignore
     createUser: async (root, { user }) => {
       const newUser = new User({ name: user.name, username: user.username });
-      console.log(newUser);
       await newUser.save();
       return newUser;
     },

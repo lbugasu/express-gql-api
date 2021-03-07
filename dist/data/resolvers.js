@@ -44,10 +44,8 @@ exports.resolvers = {
         //@ts-ignore
         getUser: function (root, _a) {
             var username = _a.username;
-            console.log(username);
             return db_1.User.findOne({ username: username })
                 .then(function (user) {
-                console.log(user);
                 return user;
             })
                 .catch(function (error) {
@@ -65,7 +63,6 @@ exports.resolvers = {
                     switch (_b.label) {
                         case 0:
                             newUser = new db_1.User({ name: user.name, username: user.username });
-                            console.log(newUser);
                             return [4 /*yield*/, newUser.save()];
                         case 1:
                             _b.sent();
